@@ -229,43 +229,7 @@ export async function createProduct(formData: FormData) {
 // MEETINGS (Phase 2.3 & 3.4 Gaps)
 // ------------------------------------------------------------------
 
-export async function createMeeting(formData: FormData) {
-  const supabase = await createClient()
 
-  try {
-    await requireAdmin(supabase)
-
-    const partnerId = formData.get('partner_id') as string
-    const title = formData.get('title') as string
-    const dateTimeStr = formData.get('date_time') as string // Expected ISO string
-    const meetLink = formData.get('meet_link') as string
-    const recordingUrl = formData.get('recording_url') as string
-    const notes = formData.get('notes') as string
-
-    if (!partnerId || !title || !dateTimeStr) {
-      throw new Error('Partner, Title, and Date are required')
-    }
-
-    const { error } = await supabase
-      .from('meetings')
-      .insert({
-        partner_id: partnerId,
-        title,
-        date_time: dateTimeStr,
-        meet_link: meetLink || null,
-        recording_url: recordingUrl || null,
-        notes: notes || null
-      })
-
-    if (error) throw error
-
-    revalidatePath('/dashboard/admin/meetings')
-    return { success: true }
-  } catch (error: unknown) {
-    console.error('Error creating meeting:', error)
-    return { success: false, error: error instanceof Error ? error.message : "Unknown error" }
-  }
-}
 
 // ------------------------------------------------------------------
 // EDUCATION & ENGAGEMENT (Phase 2.1 & 3.4 Gaps)

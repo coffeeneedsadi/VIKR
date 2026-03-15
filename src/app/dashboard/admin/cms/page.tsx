@@ -230,10 +230,10 @@ export default function AdminCMSPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="p-4 md:p-8 space-y-6 bg-[#0d1208] min-h-full text-[#e8f0e2]">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Content Management System</h1>
-        <p className="text-slate-500 dark:text-slate-400 mt-2">
+        <h1 className="text-3xl font-bold tracking-tight text-white">Content Management System</h1>
+        <p className="text-[#8aab7a] mt-2">
           Manage product SKUs and upload region-specific hub documents.
         </p>
       </div>

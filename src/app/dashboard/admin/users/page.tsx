@@ -141,27 +141,27 @@ export default function AdminUsersPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="p-4 md:p-8 space-y-6 bg-[#0d1208] min-h-full text-[#e8f0e2]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">User Access Management</h1>
-          <p className="text-slate-500 dark:text-slate-400 mt-2">
+          <h1 className="text-3xl font-bold tracking-tight text-white">User Access Management</h1>
+          <p className="text-[#8aab7a] mt-2">
             Manage partner hub users and their regional access permissions.
           </p>
         </div>
-        <Button onClick={() => setIsCreating(true)} className="bg-[#0ABFBC] hover:bg-[#09aba8] text-[#052b2a] font-bold">
+        <Button onClick={() => setIsCreating(true)} className="bg-[#6abf30] hover:bg-[#4e9422] text-black font-bold">
           + New Partner
         </Button>
       </div>
 
-      <div className="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 overflow-hidden">
+      <div className="rounded-xl border border-[#243018] bg-[#121a0e] overflow-hidden">
         <Table>
-          <TableHeader className="bg-slate-50 dark:bg-slate-950/50">
+          <TableHeader className="bg-[#1a2413]">
             <TableRow>
-              <TableHead className="font-semibold text-slate-900 dark:text-slate-200 w-[300px]">Email</TableHead>
-              <TableHead className="font-semibold text-slate-900 dark:text-slate-200">Role</TableHead>
-              <TableHead className="font-semibold text-slate-900 dark:text-slate-200">Territory</TableHead>
-              <TableHead className="text-right font-semibold text-slate-900 dark:text-slate-200">Actions</TableHead>
+              <TableHead className="font-semibold text-[#e8f0e2] w-[300px]">Email</TableHead>
+              <TableHead className="font-semibold text-[#e8f0e2]">Role</TableHead>
+              <TableHead className="font-semibold text-[#e8f0e2]">Territory</TableHead>
+              <TableHead className="text-right font-semibold text-[#e8f0e2]">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -185,7 +185,7 @@ export default function AdminUsersPage() {
               </TableRow>
             ) : (
               users.map((user) => (
-                <TableRow key={user.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+                <TableRow key={user.id} className="hover:bg-[#1a2413] border-b border-[#243018]">
                   <TableCell className="text-sm">{user.email ?? <span className="text-muted-foreground font-mono text-xs">{user.id.substring(0, 8)}…</span>}</TableCell>
                   <TableCell>
                     {user.is_admin ? (
@@ -262,11 +262,11 @@ export default function AdminUsersPage() {
 
       {/* Reset Password Dialog */}
       <Dialog open={!!resetUser} onOpenChange={(open) => !open && !isResetting && (setResetUser(null), setNewPassword(""))}>
-        <DialogContent className="sm:max-w-[400px] bg-[#131720] border-[#1E2330] text-white">
+        <DialogContent className="sm:max-w-[400px] bg-[#121a0e] border-[#243018] text-white">
           <DialogHeader>
             <DialogTitle className="text-white">Reset Partner Password</DialogTitle>
             <DialogDescription className="text-[#8F9BB3]">
-              Force-set a new password for <span className="text-[#0ABFBC] font-semibold">{resetUser?.email}</span>. No email confirmation required — share the new password directly with the partner.
+              Force-set a new password for <span className="text-[#6abf30] font-semibold">{resetUser?.email}</span>. No email confirmation required — share the new password directly with the partner.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleResetPassword}>
@@ -283,12 +283,12 @@ export default function AdminUsersPage() {
                   placeholder="Min. 6 characters"
                   required
                   minLength={6}
-                  className="bg-[#0B0C10] border-[#1E2330] text-white focus-visible:ring-[#0ABFBC] focus-visible:border-[#0ABFBC]"
+                  className="bg-[#0d1208] border-[#243018] text-white focus-visible:ring-[#6abf30] focus-visible:border-[#6abf30]"
                 />
               </div>
             </div>
             <DialogFooter>
-              <Button type="button" variant="outline" onClick={() => { setResetUser(null); setNewPassword("") }} disabled={isResetting} className="border-[#1E2330]">
+              <Button type="button" variant="outline" onClick={() => { setResetUser(null); setNewPassword('') }} disabled={isResetting} className="border-[#243018] text-[#e8f0e2] hover:bg-[#1a2413]">
                 Cancel
               </Button>
               <Button type="submit" disabled={isResetting || newPassword.length < 6} className="bg-[#FF4C4C] hover:bg-[#e04444] text-white font-bold">
@@ -371,7 +371,7 @@ export default function AdminUsersPage() {
               <Button type="button" variant="outline" onClick={() => setIsCreating(false)} disabled={isSubmittingNew}>
                 Cancel
               </Button>
-              <Button type="submit" disabled={isSubmittingNew} className="bg-[#0ABFBC] hover:bg-[#09aba8] text-[#052b2a] font-bold">
+              <Button type="submit" disabled={isSubmittingNew} className="bg-[#6abf30] hover:bg-[#4e9422] text-black font-bold">
                 {isSubmittingNew ? "Creating..." : "Create Partner"}
               </Button>
             </DialogFooter>
