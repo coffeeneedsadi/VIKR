@@ -171,6 +171,11 @@ export type Database = {
           name: string
           ph_level: number | null
           sku: string
+          usp: string | null
+          features_benefits: string | null
+          applications: string | null
+          ingredients: string | null
+          directions_to_use: string | null
         }
         Insert: {
           category?: string | null
@@ -181,6 +186,11 @@ export type Database = {
           name: string
           ph_level?: number | null
           sku: string
+          usp?: string | null
+          features_benefits?: string | null
+          applications?: string | null
+          ingredients?: string | null
+          directions_to_use?: string | null
         }
         Update: {
           category?: string | null
@@ -191,6 +201,11 @@ export type Database = {
           name?: string
           ph_level?: number | null
           sku?: string
+          usp?: string | null
+          features_benefits?: string | null
+          applications?: string | null
+          ingredients?: string | null
+          directions_to_use?: string | null
         }
         Relationships: []
       }

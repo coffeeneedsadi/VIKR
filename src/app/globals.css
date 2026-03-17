@@ -55,14 +55,13 @@
 
   --color-brand-accent: var(--brand-accent);
 
-  --font-sans: var(--font-dm-sans);
-  --font-syne: var(--font-syne);
+  --font-sans: var(--font-poppins);
+  --font-syne: var(--font-poppins);
 }
 
 body {
   background: var(--bg-main);
   color: var(--text-main);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 

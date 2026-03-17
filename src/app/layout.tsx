@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"]
 });
 
 import { ThemeProvider } from "@/components/theme-provider";
@@ -42,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${dmSans.variable} ${syne.variable} antialiased`}
+        className={`${poppins.variable} ${poppins.className} antialiased`}
       >
         <ThemeProvider>
           {children}
